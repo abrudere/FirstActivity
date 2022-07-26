@@ -1,6 +1,11 @@
 package com.bootcampexcercise.module2.activity;
 
 public class Calculator {
+    public static Object CALC_TYPE_BASIC;
+
+    public Calculator(Object calcTypeBasic) {
+    }
+
     public static void main(String[] args) {
         int x = 10;
         int y = 5;
@@ -11,22 +16,22 @@ public class Calculator {
         System.out.println("Divide - " + divide(x,y));
     }
 
-    private static int add(int x, int y) {
+    public static int add(int x, int y) {
         int sum = x + y;
         return sum;
     }
-    private static int subtract(int x, int y) {
+    public static int subtract(int x, int y) {
         int diff = x - y;
         return diff;
     }
-    private static int multiply(int[] numbers) {
+    public static int multiply(int[] numbers) {
         int temp = 1;
         for (int i = 0; i < numbers.length; i++) {
             temp = temp * numbers[i];
         }
         return temp;
     }
-    private static int divide(int x, int y) {
+    public static int divide(int x, int y) {
         int divValue = 0;
         if (x == 0 && y == 0) {
             System.out.println("Dividing 0 with 0 is not possible");
@@ -36,5 +41,9 @@ public class Calculator {
             divValue = x / y;
         }
         return divValue;
+    }
+
+    public String getCalculatorType() {
+        return null;
     }
 }
