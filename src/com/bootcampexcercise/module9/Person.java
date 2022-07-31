@@ -22,8 +22,14 @@ public class Person {
         this.height = height;
     }
 
-    public double getBodyMassIndex() {
-        return this.weight / (this.height * this.height);
+    public String calculateBodyMass() {
+        if (this.height <= 0 || this.weight <= 0)
+            return "Height and weight can not be zero";
+        if (this.height > 2.5)
+            return "Height cannot be greater than 2.5 meters";
+        if (this.weight > 150)
+            return "Please, go to the gym";
+        return "Your BMI is " + this.weight/(this.height * this.weight);
 
         //TODO: Create a method to calculate humans body mass index with two parameters for height and weight
 

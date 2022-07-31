@@ -1,6 +1,7 @@
 package com.bootcampexcercise.module9;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 public class PersonTest extends TestCase {
 
@@ -9,8 +10,7 @@ public class PersonTest extends TestCase {
     //TODO: create set up
     protected void setUp() throws Exception {
         person = new Person();
-        person.setWeight(60);
-        person.setHeight(170);
+        super.setUp();
     }
 
     //TODO: create teardown
@@ -20,26 +20,31 @@ public class PersonTest extends TestCase {
     }
 
     //TODO: create unit tests for getters and setters
-    public void testGetandSet() {
-        int weight = 60;
-        float height = 170;
-        assertEquals(person.getHeight(), height);
-        assertEquals(person.getWeight(), weight);
+        public void testGetWeight() {
+            int weight=60;
+            person.setWeight(weight);
+            Assert.assertEquals(weight,person.getWeight());
 
-        int newWeight = 110;
-        float newHeight = 200;
-        person.setWeight(newWeight);
-        person.setHeight(newHeight);
-        assertEquals(person.getHeight(), height);
-        assertEquals(person.getWeight(), weight);
-    }
+            int weight1 = 80;
+            person.setWeight (weight1);
+            Assert.assertNotEquals(weight, person.getWeight());
+        }
+        public void testGetHeight(){
+            float height=170;
+            person.setHeight(height);
+            Assert.assertEquals(height, person.getHeight(),0);
+
+            int height1 = 195;
+            person.setHeight (height1);
+            Assert.assertNotEquals(height, person.getHeight());
+        }
 
 
     //TODO: create unit test for getBodyMassIndex method
-    public void testBodyMassIndex() {
-
-        double testDataBodyMassIndex = 0.0020761245395988226;
-
-        assertEquals(person.getBodyMassIndex(), testDataBodyMassIndex);
-    }
+//    public void testBMI() {
+//
+//        double testDataBodyMassIndex = 0.0020761245395988226;
+//
+//        assertEquals(person.calculateBodyMass(), testDataBodyMassIndex);
+//    }
 }
